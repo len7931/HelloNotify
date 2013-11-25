@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/TLauncher"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/Twifi"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center_vertical"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_appwidget_settings_wifi_on_holo"
+        android:background="@drawable/wifi_btn_selector"/>
+
+    <Button
+        android:id="@+id/T2G"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="2G" 
+        android:background="@drawable/button_selector"/>
+    
+	<Button
+	    android:id="@+id/ADD"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_vertical"
+	    android:text="+"
+	    android:textSize="30sp" 
+	    android:background="@drawable/button_selector"/>
+	
+		<Button
+	    android:id="@+id/MINUS"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_vertical"
+	    android:text="-"
+	    android:textSize="30sp" 
+	    android:background="@drawable/button_selector"/>
+
+</LinearLayout>
