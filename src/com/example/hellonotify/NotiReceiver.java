@@ -34,7 +34,13 @@ public class NotiReceiver extends BroadcastReceiver {
 		}else if(TOGGLE2G.equals(action)){
 			toggleMobileData(context);
 		}else if(ADDBRIGHT.equals(action)){
-			Intent tIntent = new Intent();
+			Intent tIntent = new Intent(ADDBRIGHT);
+			tIntent.setComponent(new ComponentName("com.example.hellonotify",
+					"com.example.hellonotify.DummyActivity"));
+			tIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(tIntent);
+		}else if(MINUSBRIGHT.equals(action)){
+			Intent tIntent = new Intent(MINUSBRIGHT);
 			tIntent.setComponent(new ComponentName("com.example.hellonotify",
 					"com.example.hellonotify.DummyActivity"));
 			tIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

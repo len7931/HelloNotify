@@ -38,7 +38,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/bcst"
         android:layout_marginTop="29dp"
-        android:background="@drawable/transparenty"
+        android:background="@android:drawable/btn_default_holo_light"
         android:text="Minus" />
 
 </RelativeLayout>

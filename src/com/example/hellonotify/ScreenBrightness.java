@@ -72,15 +72,15 @@ public class ScreenBrightness {
 		int brightness = getScreenBrightness(activity);
 
 		saveScreenBrightness(activity, brightness+40);
-		//setScreenBrightness(activity, brightness+40);
-		setLight(activity, brightness+40);
+		setScreenBrightness(activity, brightness+40);
+		//setLight(activity, brightness+40);
 	}
 	
 	public static void minusScreenBrightness(Activity activity){
 		int brightness = getScreenBrightness(activity);
 		saveScreenBrightness(activity, brightness-40);
-		//setScreenBrightness(activity, brightness-40);
-		setLight(activity, brightness-40);
+		setScreenBrightness(activity, brightness-40);
+		//setLight(activity, brightness-40);
 	}
 	
 	public static void setScreenBrightness(Activity activity, int paramInt){

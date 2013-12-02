@@ -2,19 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="right"
     android:orientation="horizontal" >
 
+    <!--  
     <ImageButton
         android:id="@+id/TLauncher"
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_gravity="center_vertical"
         android:background="@drawable/ic_launcher" />
+    -->
 
     <ImageButton
         android:id="@+id/Twifi"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:layout_gravity="center_vertical"
         android:clickable="true"
         android:scaleType="fitCenter"
@@ -38,7 +41,7 @@
 	    android:textSize="30sp" 
 	    android:background="@drawable/button_selector"/>
 	
-		<Button
+	<Button
 	    android:id="@+id/MINUS"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"

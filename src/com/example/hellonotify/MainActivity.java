@@ -1,13 +1,16 @@
 package com.example.hellonotify;
 /**
  * 参考
- * PowerManager.setBacklightBrightness 分析 http://ccsosnfs.iteye.com/blog/1536360
- * Android power widget 分析 http://blog.csdn.net/stevenhu_223/article/details/9052083
+ * PowerManager.setBacklightBrightness 分析 
+ * 		http://ccsosnfs.iteye.com/blog/1536360
+ * Android power widget 分析 
+ * 		http://blog.csdn.net/stevenhu_223/article/details/9052083
  * Recevier 调用window 问题
  * 		http://stackoverflow.com/questions/10687535/how-can-i-change-the-brightness-of-the-screen-in-broadcastreceiver
  * 		http://stackoverflow.com/questions/13818540/how-to-display-a-dialog-from-a-broadcast-reciever
  * 		http://stackoverflow.com/questions/7211782/how-to-call-getwindow-using-a-method-from-a-listener
- * 
+ * android Handler 使用方法
+ * 		http://www.cnblogs.com/plokmju/p/android_handler.html
  * 
  */
 
@@ -17,6 +20,7 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -24,6 +28,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RemoteViews;
+
 
 public class MainActivity extends Activity {
 
@@ -93,8 +98,9 @@ public class MainActivity extends Activity {
 		
 		intentWifi = new Intent(NotiReceiver.TOGGLEWIFI);
 		intent2G = new Intent(NotiReceiver.TOGGLE2G);
-		intentAddBright = new Intent(NotiReceiver.ADDBRIGHT);
-		intentMinusBright = new Intent(NotiReceiver.MINUSBRIGHT);
+		intentAddBright = new Intent(this, DummyActivity.class).setAction(NotiReceiver.ADDBRIGHT);
+		intentMinusBright = new Intent(this, DummyActivity.class).setAction(NotiReceiver.MINUSBRIGHT);
+
 		
 		// 为自定义视图中的按键设置触发广播
 		pIndent = PendingIntent.getBroadcast(this, 0, intentWifi, 0);
@@ -103,10 +109,10 @@ public class MainActivity extends Activity {
 		pIndent = PendingIntent.getBroadcast(this, 0, intent2G, 0);
 		remoteView.setOnClickPendingIntent(R.id.T2G, pIndent);
 		
-		pIndent = PendingIntent.getBroadcast(this, 0, intentAddBright, 0);
+		pIndent = PendingIntent.getActivity(this, 0, intentAddBright, 0);
 		remoteView.setOnClickPendingIntent(R.id.ADD, pIndent);
 		
-		pIndent = PendingIntent.getBroadcast(this, 0, intentMinusBright, 0);
+		pIndent = PendingIntent.getActivity(this, 0, intentMinusBright, 0);
 		remoteView.setOnClickPendingIntent(R.id.MINUS, pIndent);
 		
 		
@@ -114,8 +120,6 @@ public class MainActivity extends Activity {
 		Notification.Builder mbuilder = 
 				new Notification.Builder(this)
 				.setSmallIcon(icon)
-				.setContentTitle("My")
-				.setContentText("Hello")
 				.setAutoCancel(false)
 				.setOngoing(true)
 				.setContent(remoteView); 
